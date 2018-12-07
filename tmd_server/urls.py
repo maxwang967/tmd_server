@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_jwt.views import obtain_jwt_token
+
+from users.views import RegisterView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls'))
+    # path('admin/', admin.site.urls),
+    # path('polls/', include('polls.urls')),
+    path('tmd-v1/api-auth/', obtain_jwt_token),
+    # path('api-v1/', include('rest_framework.urls')),
+    path('tmd-v1/test/', RegisterView.as_view(), name="test"),
 ]
