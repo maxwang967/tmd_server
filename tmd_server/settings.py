@@ -28,7 +28,6 @@ SECRET_KEY = '&8xsr7-$2^e(l_f=xq4u5&k@pfor-aw0@nql=7-97yi*+mij%0'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '10.27.0.193',
     '*'
 ]
 
@@ -115,10 +114,10 @@ WSGI_APPLICATION = 'tmd_server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '10.27.0.111',
-        'NAME': 'tmd_db',
+        'HOST': '101.200.54.20',
+        'NAME': 'db_tmd',
         'USER': 'root',
-        'PASSWORD': '123456'
+        'PASSWORD': 'WangMorningStar970199!'
     }
 }
 
@@ -159,10 +158,10 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    # 设置所有接口都需要被验证
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    # # 设置所有接口都需要被验证
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
@@ -173,3 +172,14 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1)
 }
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '127.0.0.1:11211',
+#     }
+# }
+
+# LOGGING = {'version': 1, 'disable_existing_loggers': False,
+#            'handlers': {'file': {'level': 'DEBUG', 'class': 'logging.FileHandler', 'filename': '/tmp/debug.log', }, },
+#            'loggers': {'django': {'handlers': ['file'], 'level': 'DEBUG', 'propagate': True, }, }, }

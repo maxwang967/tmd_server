@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_jwt.views import obtain_jwt_token
 
+from model.views import PredictView
 from users.views import RegisterView
 
 urlpatterns = [
@@ -24,5 +25,6 @@ urlpatterns = [
     # path('polls/', include('polls.urls')),
     path('tmd-v1/api-auth/', obtain_jwt_token),
     # path('api-v1/', include('rest_framework.urls')),
-    path('tmd-v1/test/', RegisterView.as_view(), name="test"),
+    path('tmd-v1/reg/', RegisterView.as_view(), name="reg"),
+    path('tmd-v1/predict/', PredictView.as_view(), name="predict"),
 ]
